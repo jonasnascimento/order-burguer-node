@@ -6,7 +6,13 @@ const bodyParser = require('body-parser')
 
 const cors = require('cors');
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://codeburguer.vercel.app',
+    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+  }
+  
+  app.use(cors(corsOptions));
+  
 
 app.use(express());
 
