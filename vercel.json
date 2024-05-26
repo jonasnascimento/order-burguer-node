@@ -1,0 +1,8 @@
+{
+"functions": {
+    "hamburgueria-node/index.js": {
+      "runtime": "nodejs14.x",
+      "maxDuration": 30
+    }
+  }
+}
