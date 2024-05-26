@@ -1,23 +1,24 @@
 const express = require('express')
 const app = express()
 const uuid = require('uuid')
-const port = 3002
+const port = process.env.PORT|| 3002;
 const bodyParser = require('body-parser')
 
 const cors = require('cors');
 
-const corsOptions = {
-    origin: 'https://codeburguer.vercel.app',
-    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
-  }
+
   
-  app.use(cors(corsOptions));
+  app.use(cors());
   
 
-app.use(express());
+app.use(express.json());
 
 
 const orders = [];
+
+app.get("/", (req,res) => {
+   return res.json("Hello World!");
+});
 
 app.use((req, res, next) => {
     console.log(`Método: ${req.method}, URL: ${req.url}`);
