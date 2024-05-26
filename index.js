@@ -1,8 +1,13 @@
 const express = require('express')
 const app = express()
 const uuid = require('uuid')
-const port = 3000
-var bodyParser = require('body-parser')
+const port = 3002
+const bodyParser = require('body-parser')
+
+const cors = require('cors');
+
+app.use(cors());
+
 app.use(express());
 
 
@@ -58,7 +63,6 @@ app.post('/orders', bodyParser.json(), (req, res) => {
 
     res.status(201).json(newOrder)
 
-    console.log(orders)
 });
 
 app.put('/orders/:id', checkOrderId, (req, res) => {
